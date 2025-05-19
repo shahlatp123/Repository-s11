@@ -1,1 +1,63 @@
+package Assignment;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class TC02_SwagLab {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\niyas\\eclipse-workspace\\ISTP_Selenium\\chromedriver\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*"); 
+		WebDriver driver= new ChromeDriver(options);
+
+		
+		
+		
+		driver.get("https://www.saucedemo.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(2000); 
+		
+		
+		
+		driver.findElement(By.xpath("//*[@name='user-name']")).sendKeys("standard_user");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@name='password']")).sendKeys("secret_sauce");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@type='submit']")).click();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@class='product_sort_container']")).click();
+		Thread.sleep(2000);
+	   
+		
+		driver.findElement(By.xpath("//*[@value='lohi']")).click();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@class='inventory_item_name']")).click();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@id='react-burger-menu-btn']")).click();
+		Thread.sleep(2000);
+		
+		
+		driver.findElement(By.xpath("//*[@id='about_sidebar_link']")).click();
+		Thread.sleep(2000);
+		
+		
+		
+		
+	    driver.close();
+	}
+
+}
 
