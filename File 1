@@ -1,0 +1,81 @@
+package Assignment;
+
+import java.time.Duration;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.util.List;
+
+public class MAKEMYTRIP {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		
+		
+		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\niyas\\eclipse-workspace\\salenium_internshp\\chromedriver.exe");
+	//	ChromeOptions options = new ChromeOptions();
+	//	options.addArguments("--remote-allow-origins=*"); 
+	//	WebDriver driver= new ChromeDriver(options);
+		WebDriver driver= new ChromeDriver();
+		
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		
+		driver.get("https://www.makemytrip.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);  
+		
+		
+		
+	driver.findElement(By.xpath("(//*[@class='chNavText darkGreyText'])[1]")).click();
+    Thread.sleep(5000);
+ 
+    driver.findElement(By.xpath("//*[@id='fromCity']")).sendKeys("Mumbai");
+  	Thread.sleep(3000);
+  		
+  	
+  	
+  	List<WebElement> fromallOptions = driver.findElements(By.xpath("//ul[@class='react-autosuggest__suggestions-list']//li"));
+          for(WebElement ele:fromallOptions)
+  		{
+  			String currentFromOption=ele.getText();
+  			if(currentFromOption.contains("Mumbai"))
+  			{
+  				ele.click();
+  				break;
+  			}
+  		}
+  		
+  		driver.findElement(By.xpath("//*[@id='toCity']")).sendKeys("Bengaluru");
+  		Thread.sleep(3000);
+  		
+  		
+  		List<WebElement> toallOptions = driver.findElements(By.xpath("//ul[@class='react-autosuggest__suggestions-list']//li"));
+  		for(WebElement ele1:toallOptions)
+  		{
+  			String currentToOption=ele1.getText();
+  			if(currentToOption.contains("Bengaluru"))
+  			{
+  				ele1.click();
+  				break;
+  			}
+  		}
+  		
+  		driver.findElement(By.xpath("(//p[text()='15'])[1]")).click();
+  		Thread.sleep(2000);
+  		driver.findElement(By.xpath("(//*[text()='Search'])")).click();
+  		Thread.sleep(2000);
+  		driver.findElement(By.xpath("((//*[@id='listingFilterCheckbox'])[3])")).click();
+  		Thread.sleep(8000);
+  		driver.findElement(By.xpath("(//*[text()='View Prices'])[2]")).click();
+  		Thread.sleep(2000);
+  		driver.findElement(By.xpath("(//*[text()='Book Now'])[1]")).click();
+  		Thread.sleep(2000);
+
+	}
+
+}
