@@ -9,7 +9,7 @@ A simple web application to keep track of your daily tasks. You can add, delete,
 - Add new tasks
 - Delete tasks
 - Mark tasks as done/undone
-- Responsive design for mobile and desktop
+- Responsive design for mobile and deskto
 
 ## Installation
 
